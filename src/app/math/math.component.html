@@ -1,0 +1,32 @@
+<div class="container center">
+  <div class="card">
+      <div class="card-body">
+        <div class="right">
+          <div [ngSwitch]="status">
+            <div *ngSwitchCase="success" class="alert alert-success alert-top">
+              <strong> {{message}}</strong>
+            </div>
+            <div *ngSwitchCase="error" class="alert alert-danger alert-top">
+              <strong> {{message}}</strong>
+            </div>
+          </div>
+          <div class="timer">
+            <p>
+              {{time}}
+            </p>
+          </div>
+        </div>
+
+        <div class="row center">
+            <h1>{{num_1}} + {{num_2}} = </h1>
+            <input type="number" [(ngModel)]="num_sum"  (change)="sumChanged()" maxlength="2" />
+        </div>
+
+        <div class="row center">
+            <p *ngIf="time_average" >
+                <sapn class="text-primary">{{str_time_average}}</sapn> seconds per solution
+            </p>
+        </div>
+      </div>
+  </div>
+</div>
